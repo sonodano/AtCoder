@@ -1,0 +1,10 @@
+a, b, t = list(map(int, input().split()))
+#a, b, t = 3, 5, 7
+total = 0
+
+mul = 1
+while mul * a <= t+0.5:
+    total += b
+    mul += 1
+
+print(total)
