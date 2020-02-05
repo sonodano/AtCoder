@@ -28,3 +28,20 @@ for ops in itertools.product(['+', '-'], repeat=3):
         ans = eq + '=7'
         print(ans)
         break
+
+#%%
+# 深さ優先探索を使う
+s = input()
+def dfs(i, f, sum):
+    if i == 3:
+        if sum == 7:
+            print(f + '=7')
+            import sys
+            sys.exit()
+
+    else:
+        # 式fの末尾に符号と次の数字を追加、合計値sumを更新
+        dfs(i+1, f + '+' + s[i+1], sum + int(s[i+1]))
+        dfs(i-1, f + '-' + s[i-1], sum + int(s[i+1]))
+
+dfs(0, s[0], int(s[0]))
